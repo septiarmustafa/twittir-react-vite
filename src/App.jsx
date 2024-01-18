@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./page/Home";
 import Explore from "./explorePage/Explore";
+import Profile from "./page/Profile";
+import Login from "./page/Login";
 
 function App() {
 
@@ -12,10 +13,8 @@ function App() {
         <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
-          {/* <Route index element={<Login />} /> */}
-          {/* <Route path="/todolist" element={<TodoList2 />} /> */}
-          {/* <Route path="/stateful" element={<Stateful />} />
-          <Route path="/style" element={<StyleComponent />} /> */}
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login/>}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -1,7 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f5f8fa;
+  background-color: rgba(0, 0, 0, 0.829);
   margin: 0;
   padding: 0;
 }
