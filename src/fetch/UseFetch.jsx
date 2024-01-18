@@ -2,15 +2,27 @@ import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((err) => console.log("Fetch error: " + err));
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Network error");
+        }
+
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchData();
   }, [url]);
 
-  return [data];
+  return [data, error];
 };
 
 export default useFetch;

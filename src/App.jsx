@@ -12,8 +12,6 @@ function App() {
         <Routes>
           <Route index element={<Twittir />} />
           <Route path="/twittir" element={<Twittir />} />
-          {/* <Route path="/stateful" element={<Stateful />} />
-          <Route path="/style" element={<StyleComponent />} /> */}
         </Routes>
       </BrowserRouter>
     </>
