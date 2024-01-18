@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import '../style/Login.css'
 import { useDispatch } from 'react-redux'
 import { add } from '../redux/UsersSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const dispatch = useDispatch()
     const [errorMessage, setErrorMessage] = useState('')
+    const navigate = useNavigate()
 
     const handleUsername = (e) => {
         setUsername(e.target.value)
@@ -22,8 +24,9 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.length > 0) {
-                    dispatch(add(data))
+                    dispatch(add(data[0]))
                     setErrorMessage('')
+                    navigate("/profile")
                 } else {
                     setErrorMessage('Username not found ')
                 }

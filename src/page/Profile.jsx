@@ -1,36 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export default function Profile() {
-    const [user, setUser] = useState()
+    const user = useSelector(state => state.user.user)
     const [posts, setPosts] = useState()
     
-    useEffect(() => {
-        const user1 = {
-            "id": 1,
-            "name": "Leanne Graham",
-            "username": "Bret",
-            "email": "Sincere@april.biz",
-            "address": {
-              "street": "Kulas Light",
-              "suite": "Apt. 556",
-              "city": "Gwenborough",
-              "zipcode": "92998-3874",
-              "geo": {
-                "lat": "-37.3159",
-                "lng": "81.1496"
-              }
-            },
-            "phone": "1-770-736-8031 x56442",
-            "website": "hildegard.org",
-            "company": {
-              "name": "Romaguera-Crona",
-              "catchPhrase": "Multi-layered client-server neural-net",
-              "bs": "harness real-time e-markets"
-            }
-        }
-        setUser(user1)
-        
-        fetch("https://jsonplaceholder.typicode.com/posts?userId=" + user1.id)
+    useEffect(() => {     
+        fetch("https://jsonplaceholder.typicode.com/posts?userId=" + user.id)
             .then(response => response.json())
             .then(data => setPosts(data))
             .catch(error => console.error('Error fetching posts:', error));
