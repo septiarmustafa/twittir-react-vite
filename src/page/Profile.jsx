@@ -19,7 +19,7 @@ export default function Profile() {
   return (
     <>
         {user && 
-        <div className="container-fluid">
+        <div className="container-fluid text-white">
             <div className="row mt-5 mb-3">
                 <div className="col"><h3>{user.name}</h3></div>
             </div>
