@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import '../style/Login.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { add } from '../redux/UsersSlice'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const [username, setUsername] = useState('')
-    // const users = useSelector((state) => state.user.user)
     const dispatch = useDispatch()
+    const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate()
 
     const handleUsername = (e) => {
@@ -15,12 +15,25 @@ const Login = () => {
     }
 
     const handleLogin = e => {
+        if (!username.trim()) {
+            setErrorMessage("Please enter your username")
+            return
+        }
+
         fetch("https://jsonplaceholder.typicode.com/users?username=" + username)
             .then(response => response.json())
             .then(data => {
-                dispatch(add(data[0]))
-                navigate("/profile")
-            }).catch(error => console.error('Usename not found: ', error))
+                if (data.length > 0) {
+                    dispatch(add(data[0]))
+                    setErrorMessage('')
+                    navigate("/profile")
+                } else {
+                    setErrorMessage('Username not found ')
+                }
+            })
+            .catch(error => {
+                setErrorMessage('Username not found ', error)
+            })
     }
     return (
         <>
@@ -29,22 +42,18 @@ const Login = () => {
                     <div className="container py-5 h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                                <div className="card bg-dark text-white" style={{ borderRadius: '1rem' }}>
+                                <div className="card text-white" style={{ borderRadius: '1rem', backgroundColor: 'rgb(0 0 0)' }}>
                                     <div className="card-body p-4 text-center">
-
                                         <div className="mb-md-5 mt-md-4">
-
                                             <h2 className="fw-bold mb-2 text-uppercase">Login to twittir</h2>
                                             <p className="text-white-50 mb-5">Please enter your login</p>
-
-                                            <div className="form-outline form-white mb-2">
-                                                <input type="text" className="form-control form-control-lg" placeholder='Username' value={username} onChange={(e) => handleUsername(e)} />
+                                            <div className="form-outline form-white mb-2 needs-validation" noValidate>
+                                                <input type="text" className={`form-control form-control-lg ${errorMessage && 'is-invalid'}`} placeholder='Username' value={username} onChange={(e) => handleUsername(e)} required />
+                                                <div className='invalid-feedback' style={{ fontSize: '20px', color: 'red' }}>
+                                                    {errorMessage}
+                                                </div>
                                             </div>
-
-                                            {/* <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p> */}
-
                                             <button className="btn btn-outline-light btn-lg px-5" type="submit" onClick={e => handleLogin()}>Login</button>
-
                                             <div className="custom-login d-flex justify-content-center text-center mt-5 mb-3 pt-1">
                                                 <a href="#!" className="text-white">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-google" viewBox="0 0 16 16">
