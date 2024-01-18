@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           {/* <Route path="/todolist" element={<TodoList2 />} /> */}
           {/* <Route path="/stateful" element={<Stateful />} />
           <Route path="/style" element={<StyleComponent />} /> */}

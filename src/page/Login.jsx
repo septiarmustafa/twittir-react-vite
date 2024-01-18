@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import '../style/Login.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { add } from '../redux/UsersSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const [username, setUsername] = useState('')
     // const users = useSelector((state) => state.user.user)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleUsername = (e) => {
         setUsername(e.target.value)
@@ -16,7 +18,8 @@ const Login = () => {
         fetch("https://jsonplaceholder.typicode.com/users?username=" + username)
             .then(response => response.json())
             .then(data => {
-                dispatch(add(data))
+                dispatch(add(data[0]))
+                navigate("/profile")
             }).catch(error => console.error('Usename not found: ', error))
     }
     return (
