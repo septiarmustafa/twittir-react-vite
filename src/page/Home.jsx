@@ -1,14 +1,14 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import Body from './body'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Body from "../components/Body";
 
 export default function Home() {
   return (
     <>
-    <Navbar/>
-    <Body/>
-    <Footer/>
+      <Navbar />
+      <Body />
+      <Footer />
     </>
-  )
+  );
 }
