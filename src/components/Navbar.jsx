@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <>
-      <link rel="./index.css" href="" />
+      <link rel="stylesheet" href="./index.css" />
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <NavLink to="/" className="navbar-brand">
             <img src="./img.png" alt="Twittir Logo" height="50" width="80" />
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,29 +24,25 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <NavLink exact to="/" className="nav-link" activeClassName="active">
                   Home
-                </a>
+                </NavLink>
               </li>
-              <Link to={"/explore"}>
-                <li className="nav-item">
-                  <p className="nav-link" href="#">
-                    Explore
-                  </p>
-                </li>
-              </Link>
               <li className="nav-item">
-                <a className="nav-link active" href="#">
-                  Profile
-                </a>
+                <NavLink to="/explore" className="nav-link" activeClassName="active">
+                  Explore
+                </NavLink>
               </li>
-              <Link to={"/login"}>
-                <li className="nav-item">
-                  <p className="nav-link" href="#">
-                    Logout
-                  </p>
-                </li>
-              </Link>
+              <li className="nav-item">
+                <NavLink to="/profile" className="nav-link" activeClassName="active">
+                  Profile
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/login" className="nav-link" activeClassName="active">
+                  Logout
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

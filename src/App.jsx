@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./page/Home";
 import Explore from "./page/Explore";
-import Profile from "./page/Profile";
 import Login from "./page/Login";
+import ProfilePage from "./page/ProfilePage";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

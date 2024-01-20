@@ -43,7 +43,8 @@ export default function BodyExplore() {
     <>
       <link rel="./index.css" href="" />
       <div className="explore-content">
-        <div className="container">
+        <div className="container d-flex">
+          <div className="">
           <h1>Explore Twittir</h1>
           <div>
             <form className="form-inline my-2 my-lg-0">
@@ -57,13 +58,14 @@ export default function BodyExplore() {
               />
             </form>
           </div>
-
+          </div>
+          <div className="col-lg-9">
           {searchResults.length > 0 ? (
             searchResults.map((post) => <TweetCard key={post.id} post={post} />)
           ) : (
             <NotFoundCard searchName={searchName} />
           )}
-
+          </div>
           {/* <div className="explore-card">
             <h3>Trending Topic #2</h3>
             <p>
