@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./page/Home";
+import Explore from "./page/Explore";
 import Profile from "./page/Profile";
 import Login from "./page/Login";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/todolist" element={<TodoList2 />} /> */}
-          {/* <Route path="/stateful" element={<Stateful />} />
-          <Route path="/style" element={<StyleComponent />} /> */}
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
