@@ -44,35 +44,30 @@ export default function BodyExplore() {
       <link rel="./index.css" href="" />
       <div className="explore-content">
         <div className="container d-flex">
-          <div className="">
-          <h1>Explore Twittir</h1>
-          <div>
-            <form className="form-inline my-2 my-lg-0">
-              <input
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                value={searchName}
-                onChange={(e) => searchByName(e)}
-              />
-            </form>
+          <div className="me-5">
+            <h1>Explore Twittir</h1>
+            <div>
+              <form className="form-inline my-5 my-lg-0">
+                <input
+                  className="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  value={searchName}
+                  onChange={(e) => searchByName(e)}
+                />
+              </form>
+            </div>
           </div>
+          <div className="col-lg-9 ms-4">
+            {searchResults.length > 0 ? (
+              searchResults.map((post) => (
+                <TweetCard key={post.id} post={post} />
+              ))
+            ) : (
+              <NotFoundCard searchName={searchName} />
+            )}
           </div>
-          <div className="col-lg-9">
-          {searchResults.length > 0 ? (
-            searchResults.map((post) => <TweetCard key={post.id} post={post} />)
-          ) : (
-            <NotFoundCard searchName={searchName} />
-          )}
-          </div>
-          {/* <div className="explore-card">
-            <h3>Trending Topic #2</h3>
-            <p>
-              This is another trending topic. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit...
-            </p>
-          </div> */}
         </div>
       </div>
     </>

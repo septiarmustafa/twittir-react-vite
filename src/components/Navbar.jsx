@@ -24,22 +24,39 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <NavLink exact to="/" className="nav-link" activeClassName="active">
+                <NavLink
+                  exact
+                  to="/home"
+                  className="nav-link"
+                  activeClassName="active"
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/explore" className="nav-link" activeClassName="active">
+                <NavLink
+                  to="/explore"
+                  className="nav-link"
+                  activeClassName="active"
+                >
                   Explore
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/profile" className="nav-link" activeClassName="active">
+                <NavLink
+                  to="/profile"
+                  className="nav-link"
+                  activeClassName="active"
+                >
                   Profile
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/login" className="nav-link" activeClassName="active">
+                <NavLink
+                  to="/login"
+                  className="nav-link"
+                  activeClassName="active"
+                >
                   Logout
                 </NavLink>
               </li>
