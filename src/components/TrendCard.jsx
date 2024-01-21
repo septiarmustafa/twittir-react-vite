@@ -3,7 +3,7 @@ import React from "react";
 
 const TrendCard = () => (
   <div className="col-lg-3">
-    <div className="card trend-card">
+    <div className="card trend-card text-center">
       <div className="card-header">Trends</div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">#Bootstrap</li>

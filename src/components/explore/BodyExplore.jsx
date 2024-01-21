@@ -45,7 +45,7 @@ export default function BodyExplore() {
       <div className="explore-content">
         <div className="container d-flex">
           <div className="me-5">
-            <h1>Explore Twittir</h1>
+            <h1 style={{ fontSize: "37px" }}>Explore Twittir</h1>
             <div>
               <form className="form-inline my-5 my-lg-0">
                 <input
@@ -59,13 +59,15 @@ export default function BodyExplore() {
               </form>
             </div>
           </div>
-          <div className="col-lg-9 ms-4">
+          <div className="col-lg-7 ">
             {searchResults.length > 0 ? (
               searchResults.map((post) => (
                 <TweetCard key={post.id} post={post} />
               ))
-            ) : (
+            ) : searchName ? (
               <NotFoundCard searchName={searchName} />
+            ) : (
+              <p></p>
             )}
           </div>
         </div>
