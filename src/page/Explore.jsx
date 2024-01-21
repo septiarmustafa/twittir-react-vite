@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/explore/Navbar";
 import Footer from "../components/Footer";
 import BodyExplore from "../components/explore/BodyExplore";
+import Navbar from "../components/Navbar";
 
 export default function Explore() {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <BodyExplore />
       <Footer />
     </>

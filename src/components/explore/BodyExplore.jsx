@@ -43,34 +43,33 @@ export default function BodyExplore() {
     <>
       <link rel="./index.css" href="" />
       <div className="explore-content">
-        <div className="container">
-          <h1>Explore Twittir</h1>
-          <div>
-            <form className="form-inline my-2 my-lg-0">
-              <input
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                value={searchName}
-                onChange={(e) => searchByName(e)}
-              />
-            </form>
+        <div className="container d-flex">
+          <div className="me-5">
+            <h1 style={{ fontSize: "37px" }}>Explore Twittir</h1>
+            <div>
+              <form className="form-inline my-5 my-lg-0">
+                <input
+                  className="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  value={searchName}
+                  onChange={(e) => searchByName(e)}
+                />
+              </form>
+            </div>
           </div>
-
-          {searchResults.length > 0 ? (
-            searchResults.map((post) => <TweetCard key={post.id} post={post} />)
-          ) : (
-            <NotFoundCard searchName={searchName} />
-          )}
-
-          {/* <div className="explore-card">
-            <h3>Trending Topic #2</h3>
-            <p>
-              This is another trending topic. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit...
-            </p>
-          </div> */}
+          <div className="col-lg-7 ">
+            {searchResults.length > 0 ? (
+              searchResults.map((post) => (
+                <TweetCard key={post.id} post={post} />
+              ))
+            ) : searchName ? (
+              <NotFoundCard searchName={searchName} />
+            ) : (
+              <p></p>
+            )}
+          </div>
         </div>
       </div>
     </>
