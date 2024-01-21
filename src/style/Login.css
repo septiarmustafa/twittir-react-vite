@@ -1,4 +1,13 @@
-.custom-login a {
-    margin: 0 10px 0 10px;
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
 }
 
+.custom-section {
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
