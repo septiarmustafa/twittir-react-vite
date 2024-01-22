@@ -30,9 +30,8 @@ export default function Body() {
     fetchData();
   }, [dataPost, dataUser]);
   return (
-    <>
-      <link rel="./index.css" href="" />
-      <div className="container mt-4">
+    <div className="bg-black">
+      <div className="container pt-4">
         <div className="row">
           <div className="col-lg-3">
             <div className="container-fluid">
@@ -40,7 +39,7 @@ export default function Body() {
                 <div className="col">
                   <h3>{user.name}</h3>
                   <div style={{ width: "200px" }}>
-                    <hr />
+                    <hr className="text-light"/>
                   </div>
                 </div>
               </div>
@@ -60,6 +59,6 @@ export default function Body() {
           <TrendCard />
         </div>
       </div>
-    </>
+    </div>
   );
 }
