@@ -54,7 +54,7 @@ export default function Profile() {
 
           {posts &&
             posts.map((post) => (
-              <TweetCard post={post} className="text-light"/>
+              <TweetCard key={post.id} post={post} className="text-light"/>
           ))}
         </div>
       )}
