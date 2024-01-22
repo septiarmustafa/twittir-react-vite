@@ -2,9 +2,9 @@
 import React from "react";
 
 const NotFoundCard = ({ searchName }) => (
-  <div className="row justify-content-center">
+  <div className="row justify-content-center bg-black">
     <div className="col">
-      <div className="card tweet-card">
+      <div className="card tweet-card bg-dark text-light">
         <div className="card-body">
           <div className="media">
             <div></div>

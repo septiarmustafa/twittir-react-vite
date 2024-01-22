@@ -41,15 +41,15 @@ export default function BodyExplore() {
 
   return (
     <>
-      <link rel="./index.css" href="" />
+      {/* <link rel="./index.css" href="" /> */}
       <div className="explore-content">
         <div className="container d-flex">
-          <div className="me-5">
+          <div className="me-5 text-light">
             <h1 style={{ fontSize: "37px" }}>Explore Twittir</h1>
             <div>
               <form className="form-inline my-5 my-lg-0">
                 <input
-                  className="form-control mr-sm-2"
+                  className="form-control mr-sm-2 bg-dark text-light"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"

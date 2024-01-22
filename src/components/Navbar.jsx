@@ -1,11 +1,27 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const user = useSelector((state) => state.user.user)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isEmpty(user)) navigate('/login')
+  }, [])
+
+  function isEmpty(obj) {
+    for (const prop in obj) {
+      if (Object.hasOwn(obj, prop)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   return (
     <>
-      <link rel="stylesheet" href="./index.css" />
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-black">
         <div className="container">
           <NavLink to="/" className="navbar-brand">
             <img src="./img.png" alt="Twittir Logo" height="50" width="80" />

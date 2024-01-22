@@ -16,7 +16,7 @@ const TweetCard = ({ post }) => {
     <div key={post.id}>
       <div className="row justify-content-center">
         <div className="col">
-          <div className="card tweet-card">
+          <div className="card tweet-card bg-dark text-light">
             <div className="card-body">
               <div className="media">
                 <img
@@ -98,7 +98,7 @@ const TweetCard = ({ post }) => {
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
-                          fill="black"
+                          fill="orange"
                           className="bi bi-bookmark-fill"
                           viewBox="0 0 16 16"
                           onClick={handleBookmarkToggle}
